@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { ShoppingBag } from 'lucide-react';
-import type { Product, CartItem } from '../../types';
-import { ProductModal } from './ProductModal';
-import { MobileCarousel } from './MobileCarousel';
+import { useAlert } from '../../contexts/AlertContext';
+import type { CartItem, Product } from '../../types';
 import { DesktopGrid } from './DesktopGrid';
+import { MobileCarousel } from './MobileCarousel';
+import { ProductModal } from './ProductModal';
 
 interface ProductsSectionProps {
 	products: Product[];
@@ -15,6 +15,7 @@ interface ProductsSectionProps {
 export function ProductsSection({ products }: ProductsSectionProps) {
 	const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 	const [cart, setCart] = useState<CartItem[]>([]);
+	const { success } = useAlert();
 
 	const handleAddClick = (product: Product) => {
 		setSelectedProduct(product);
@@ -23,6 +24,7 @@ export function ProductsSection({ products }: ProductsSectionProps) {
 	const handleAddToCart = (product: Product, size: string) => {
 		setCart(prev => [...prev, { product, size, quantity: 1 }]);
 		console.log('Agregado al carrito:', { product: product.name, size });
+		success('¡Agregado al carrito!', `${product.name} - Talla ${size}`);
 	};
 
 	const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
