@@ -3,6 +3,7 @@ import { MomentsSection } from "./components/Moments"
 import { Navigation } from "./components/Navigation"
 import { ProductsSection } from "./components/Products"
 import { Slider } from "./components/Slider"
+import { SocialMedia } from "./components/SocialMedia"
 import { categories } from "./data/categories"
 import { galleryImages } from "./data/gallery"
 import { moments } from "./data/moments"
@@ -18,6 +19,7 @@ function App() {
       <ProductsSection products={products} />
       <MomentsSection moments={moments} />
       <GallerySection gallery={galleryImages} />
+      <SocialMedia />
     </div>
   )
 }
