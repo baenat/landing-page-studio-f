@@ -1,6 +1,7 @@
 import { Plus, ShoppingBag } from 'lucide-react';
-import type { ProductCardProps } from '../../types';
+import type { Product, ProductCardProps } from '../../types';
 import { useState } from 'react';
+import { useAlert } from '../../contexts/AlertContext';
 
 /**
  * Card de producto individual
@@ -8,6 +9,17 @@ import { useState } from 'react';
 export function ProductCard({ product, onAddClick }: ProductCardProps) {
 	const [selectedSize, setSelectedSize] = useState<string>('');
 	const [showSectionCart, setShowSectionCart] = useState<boolean>(false);
+	const { success, info } = useAlert();
+
+	const handleAddToCart = (product: Product) => {
+		if (!selectedSize) {
+			console.log('Por favor selecciona una talla');
+			info(`Por favor selecciona una talla`);
+			return;
+		}
+
+		success('¡Agregado al carrito!', `${product.name} - Talla ${selectedSize}`);
+	};
 
 	return (
 		<section className="group relative bg-white" onMouseLeave={() => setShowSectionCart(false)}>
@@ -31,7 +43,7 @@ export function ProductCard({ product, onAddClick }: ProductCardProps) {
 
 			{/* Size selector card (visible en hover en desktop) */}
 			{showSectionCart &&
-				<div className="absolute bottom-16 left-4 right-4 bg-white shadow-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 hidden md:block">
+				<div className="absolute bottom-16 left-4 right-4 bg-white shadow-lg p-4 transition-opacity duration-300 z-20">
 					<p className="text-xs text-center mb-2 font-thin">Selecciona tu talla</p>
 					<p className="text-xs text-center mb-3 font-medium">{product.name}</p>
 					<div className="flex justify-center gap-2 mb-3 flex-wrap">
@@ -46,7 +58,7 @@ export function ProductCard({ product, onAddClick }: ProductCardProps) {
 						))}
 					</div>
 					<button
-						onClick={() => onAddClick(product)}
+						onClick={() => handleAddToCart(product)}
 						className="w-full flex items-center justify-center gap-2 text-sm hover:text-amber-900 hover:font-bold transition-all cursor-pointer"
 					>
 						<ShoppingBag className="w-4 h-4" />

@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import { X, ShoppingBag } from 'lucide-react';
 import type { ProductModalProps } from '../../types';
+import { useAlert } from '../../contexts/AlertContext';
 
 /**
  * Modal para selección de talla y agregar al carrito
  */
 export function ProductModal({ product, onClose, onAddToCart }: ProductModalProps) {
 	const [selectedSize, setSelectedSize] = useState<string>('');
+	const { info } = useAlert();
 
 	if (!product) return null;
 
 	const handleAddToCart = () => {
 		if (!selectedSize) {
-			alert('Por favor selecciona una talla');
+			console.log('Por favor selecciona una talla');
+			info(`Por favor selecciona una talla`);
 			return;
 		}
 		onAddToCart(product, selectedSize);
@@ -71,8 +74,8 @@ export function ProductModal({ product, onClose, onAddToCart }: ProductModalProp
 								key={size}
 								onClick={() => setSelectedSize(size)}
 								className={`py-3 px-2 border transition-all duration-300 text-sm font-medium cursor-pointer ${selectedSize === size
-										? 'bg-amber-900 text-white border-amber-900'
-										: 'bg-white text-black border-gray-300 hover:border-amber-900'
+									? 'bg-amber-900 text-white border-amber-900'
+									: 'bg-white text-black border-gray-300 hover:border-amber-900'
 									}`}
 							>
 								{size}
