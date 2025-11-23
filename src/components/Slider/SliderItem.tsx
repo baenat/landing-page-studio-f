@@ -7,11 +7,21 @@ export function SlideItem({ slide, isActive }: { slide: Slide; isActive: boolean
 				}`}
 		>
 			{/* Imagen */}
-			<img
-				src={slide.image}
-				alt={slide.alt}
-				className="w-full h-full object-cover"
-			/>
+			<picture>
+				{/* Mobiles */}
+				<source
+					srcSet={slide.imageMobile}
+					media="(max-width: 767px)"
+				/>
+
+				{/* Web */}
+				<img
+					src={slide.image}
+					alt={slide.alt}
+					className="w-full h-full object-cover max-sm:object-fill"
+				/>
+			</picture>
+
 
 			{/* Overlay */}
 			<div
