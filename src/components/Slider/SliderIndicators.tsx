@@ -2,7 +2,7 @@ import type { SliderIndicatorsProps } from "../../types";
 
 export function SliderIndicators({ total, current, onGoTo }: SliderIndicatorsProps) {
 	return (
-		<div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+		<div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20 opacity-0 max-sm:opacity-100">
 			{Array.from({ length: total }).map((_, index) => (
 				<button
 					key={index}
