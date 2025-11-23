@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAutoPlay } from '../../hooks/useAutoPlay';
 import { useSlider } from '../../hooks/useSlider';
 import type { SliderProps } from '../../types';
@@ -8,6 +8,10 @@ import { SlideItem } from './SliderItem';
 export function Slider({ slides, autoPlay = true, interval = 5000 }: SliderProps) {
 	const { currentIndex, next, previous, goTo } = useSlider(slides.length);
 	const [autoPlayEnabled, setAutoPlayEnabled] = useState(autoPlay);
+
+	useEffect(() => {
+		setAutoPlayEnabled(autoPlay);
+	}, [autoPlay]);
 
 	const { pause } = useAutoPlay({
 		enabled: autoPlayEnabled,
