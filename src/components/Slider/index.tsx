@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useAutoPlay } from '../../hooks/useAutoPlay';
-import { useSlider } from '../../hooks/useSlider';
+import { useCarousel } from '../../hooks/useCarousel';
 import type { SliderProps } from '../../types';
 import { SliderIndicators } from './SliderIndicators';
 import { SlideItem } from './SliderItem';
 
 export function Slider({ slides, autoPlay = true, interval = 5000 }: SliderProps) {
-	const { currentIndex, next, previous, goTo } = useSlider(slides.length);
+	const { currentIndex, next, previous, goTo } = useCarousel(slides.length);
 	const [autoPlayEnabled, setAutoPlayEnabled] = useState(autoPlay);
 
 	useEffect(() => {

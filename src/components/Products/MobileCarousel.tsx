@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useProductCarousel } from '../../hooks/useProductCarousel';
+import { useCarousel } from '../../hooks/useCarousel';
 import type { ProductListProps } from '../../types';
 import { ProductCard } from './ProductCard';
 
@@ -7,7 +7,7 @@ import { ProductCard } from './ProductCard';
  * Vista mobile con carrusel y controles
  */
 export function MobileCarousel({ products, onAddClick }: ProductListProps) {
-	const { currentIndex, next, previous } = useProductCarousel(products.length);
+	const { currentIndex, next, previous } = useCarousel(products.length);
 	const currentProduct = products[currentIndex];
 
 	return (
