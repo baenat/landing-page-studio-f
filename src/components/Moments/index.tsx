@@ -13,7 +13,7 @@ interface MomentsSectionProps {
  */
 export function MomentsSection({ moments }: MomentsSectionProps) {
 	return (
-		<section className="bg-white py-20">
+		<section className="bg-white py-16">
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Section Title */}
 				<SectionTitle title='Moments' />

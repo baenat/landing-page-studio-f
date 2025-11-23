@@ -30,7 +30,7 @@ export function ProductsSection({ products }: ProductsSectionProps) {
 	const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
 
 	return (
-		<section className="bg-gray-50 py-16">
+		<section className="bg-white py-16">
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Section Title */}
 				<h2 className="text-3xl md:text-4xl font-serif text-center mb-12 tracking-wide">

@@ -14,7 +14,7 @@ export function Navigation({ categories: initialCategories }: NavigationProps) {
   };
 
   return (
-    <nav className="fixed flex justify-center items-center gap-8 pt-[4vh] right-0 left-0 z-50">
+    <nav className="absolute flex justify-center items-center gap-8 pt-[4vh] right-0 left-0 z-50">
       {categories.map(category => (
         <a
           key={category.id}
