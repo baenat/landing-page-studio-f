@@ -4,6 +4,7 @@ import type { CartItem, Product } from '../../types';
 import { DesktopGrid } from './DesktopGrid';
 import { MobileCarousel } from './MobileCarousel';
 import { ProductModal } from './ProductModal';
+import { SectionTitle } from '../Title';
 
 interface ProductsSectionProps {
 	products: Product[];
@@ -33,10 +34,7 @@ export function ProductsSection({ products }: ProductsSectionProps) {
 		<section className="bg-white py-16">
 			<div className="max-w-7xl mx-auto px-4">
 				{/* Section Title */}
-				<h2 className="text-3xl md:text-4xl font-serif text-center mb-12 tracking-wide">
-					NEW ARRIVALS
-					<div className="w-24 h-0.5 bg-gray-900 mx-auto mt-2" />
-				</h2>
+				<SectionTitle title='NEW ARRIVALS' />
 
 				{/* Mobile View - Carrusel */}
 				<div className="md:hidden">
