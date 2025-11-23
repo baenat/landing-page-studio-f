@@ -38,3 +38,37 @@ export interface SliderIndicatorsProps {
 export interface NavigationProps {
 	categories: Category[];
 }
+
+/* Productos  */
+
+export interface Product {
+	id: string;
+	name: string;
+	image: string;
+	alt: string;
+	sizes: string[];
+	category: string;
+	price?: number;
+}
+
+export interface CartItem {
+	product: Product;
+	size: string;
+	quantity?: number;
+}
+
+export interface ProductModalProps {
+	product: Product | null;
+	onClose: () => void;
+	onAddToCart: (product: Product, size: string) => void;
+}
+
+export interface ProductCardProps {
+	product: Product;
+	onAddClick: (product: Product) => void;
+}
+
+export interface ProductListProps {
+	products: Product[];
+	onAddClick: (product: Product) => void;
+}
