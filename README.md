@@ -4,7 +4,7 @@
 
 Landing page moderna y elegante construida con React 19, TypeScript y Tailwind CSS
 
-![React](https://img.shields.io/badge/React-19-red?style=for-the-badge&logo=angular)
+![React](https://img.shields.io/badge/React-19-green?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript)
 ![CSS](https://img.shields.io/badge/css-%231572B6.svg?style=for-the-badge&logo=css&logoColor=white)
 ![GIT](https://img.shields.io/badge/Git-fc6d26?style=for-the-badge&logo=git&logoColor=white)
@@ -14,77 +14,142 @@ Landing page moderna y elegante construida con React 19, TypeScript y Tailwind C
 
 </div><br>
 
+## 🎥 Demo
 
-# React + TypeScript + Vite
+### Desktop View
+![Mobile Demo](./public/demo/demo.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**[Ver Demo en Vivo →](https://elegance-store-demo.vercel.app)**
 
-Currently, two official plugins are available:
+## 🚀 Instalación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisitos
 
-## React Compiler
+- Node.js 18+ 
+- npm o yarn
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Instalación Local
 
-## Expanding the ESLint configuration
+```bash
+# Clonar el repositorio
+git clone https://github.com/baenat/landing-page-studio-f
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Navegar al directorio
+cd landing-page-studio-f
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Instalar dependencias
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Iniciar servidor de desarrollo
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Abrir en el navegador
+# http://localhost:5173
+```
+---
+
+## 📁 Estructura del Proyecto
+
+```
+landing-studio-f/
+├── public/              # Archivos estáticos
+├── src/
+│   ├── components/      # Componentes React
+│   │   ├── Alert/       # Sistema de notificaciones
+│   │   ├── Gallery/     # Galería de imágenes
+│   │   ├── Moments/     # Sección de momentos
+│   │   ├── Navigation/  # Navegación principal
+│   │   ├── Products/    # Catálogo de productos
+│   │   └── Slider/      # Carrusel hero
+│   ├── hooks/           # Custom hooks
+│   │   ├── useAlerts.ts
+│   │   ├── useAutoPlay.ts
+│   │   └── useCarousel.ts
+│   ├── types/           # Definiciones TypeScript
+│   │   └── index.ts
+│   ├── data/            # Datos y configuración
+│   │   ├── categories.ts
+│   │   ├── gallery.ts
+│   │   ├── moments.ts
+│   │   ├── products.ts
+│   │   └── slides.ts
+│   ├── App.tsx          # Componente principal
+│   └── main.tsx         # Punto de entrada
+├── .gitignore
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Tecnologías
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Core
+- **React 19** - Biblioteca UI
+- **TypeScript 5.5** - Tipado estático
+- **Vite 5.4** - Build tool
+
+### Styling
+- **Tailwind CSS** - Framework CSS utility-first
+
+### Iconos
+- **Lucide React** - Iconos modernos
+
+### Fonts
+- **Playfair Display** - Fuente serif elegante
+
+---
+
+## 🏗️ Arquitectura
+
+### Principios de Diseño
+
+**Separación de Responsabilidades**
 ```
+Components → UI pura (presentación)
+Hooks      → Lógica reutilizable
+Types      → Contratos de datos
+Data       → Configuración centralizada
+```
+**Componentes Pequeños y Enfocados**
+```typescript
+// ✅ Bueno - Una responsabilidad
+function ProductCard({ product }) { ... }
+
+// ❌ Malo - Demasiadas responsabilidades
+function ProductSection() { /* fetch, filter, render */ }
+```
+---
+
+## 📚 Recursos Adicionales
+
+- [React Documentation](https://react.dev)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Vite Guide](https://vitejs.dev/guide/)
+- [Lucide Icons](https://lucide.dev)
+
+---
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 📧 Contacto
+
+**Desarrollador**: [baenat](https://github.com/baenat)
+
+**Repositorio**: [landing-page-studio-f](https://github.com/baenat/landing-page-studio-f)
+
+---
+
+<div align="center">
+  <strong>Hecho con ❤️ y React</strong>
+</div>
+
+<div align="center">
+  <sub>Built with React • TypeScript • Tailwind CSS</sub>
+</div>
