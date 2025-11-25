@@ -20,7 +20,7 @@ Landing page moderna y elegante construida con React 19, TypeScript y Tailwind C
 ### Desktop View
 ![Mobile Demo](./public/demo/demo.png)
 
-**[Ver Demo en Vivo →](https://elegance-store-demo.vercel.app)**
+**[Ver Demo en Vivo →](https://landing-studio-f.netlify.app/)**
 
 ## 🚀 Instalación
 
